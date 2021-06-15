@@ -24,7 +24,7 @@ export default function Hero(props) {
             Forget Busy Work, <br />
             Start Next Vacation
           </h1>
-          <p className="mb-5 font-weight-light text-gray-500 w-75">
+          <p className="mb-5 font-weight-light text-gray-500 w-75" style={{ lineHeight: "170%"}}>
             We provide what you need to enjoy your holiday with family. Time to make another memorable moments.
           </p>
           <Button className="btn px-5" hasShadow isPrimary onClick={showMostPicked}>
@@ -32,7 +32,7 @@ export default function Hero(props) {
           </Button>
 
           <div className="row mt-5">
-            <div className="col-auto" style={{ marginRight: 50}}>
+            <div className="col-auto" style={{ marginRight: 35}}>
               <img
                 width="36"
                 height="36" 
@@ -54,7 +54,7 @@ export default function Hero(props) {
                 {props.data.treasures} <span className="text-gray-500 font-weight-light">Treasures</span>
               </h6>
             </div>
-            <div className="col-auto" style={{ marginRight: 35}}>
+            <div className="col-auto">
               <img
                 width="36"
                 height="36" 
