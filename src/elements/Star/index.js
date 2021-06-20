@@ -52,6 +52,7 @@ export default function Star({ className, value, height, width, spacing }) {
     );
   }
 
+  // return the stars container here
   return (
     <>
       <div
