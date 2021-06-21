@@ -18,7 +18,7 @@ export default function Star({ className, value, height, width, spacing }) {
           left: index * width,
           height: height,
           width: width,
-          marginRight: spacing
+          marginRight: spacing,
         }}
       ></div>
     );
@@ -31,7 +31,7 @@ export default function Star({ className, value, height, width, spacing }) {
         style={{
           left: leftPos,
           height: height,
-          width: decimals * width - spacing
+          width: decimals * width - spacing,
         }}
       ></div>
     );
@@ -46,7 +46,7 @@ export default function Star({ className, value, height, width, spacing }) {
           left: index * width,
           height: height,
           width: width,
-          marginRight: spacing
+          marginRight: spacing,
         }}
       ></div>
     );
@@ -71,5 +71,5 @@ Star.propTypes = {
   value: propTypes.number,
   width: propTypes.number,
   height: propTypes.number,
-  spacing: propTypes.number
+  spacing: propTypes.number,
 };
