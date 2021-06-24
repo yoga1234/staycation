@@ -1,3 +1,6 @@
+// this import file is incomplete
+// please read the requirement file
+
 import React, { useState, useRef, useEffect } from "React";
 import propTypes from "prop-types";
 
