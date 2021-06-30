@@ -4,12 +4,11 @@ import Fade from "react-reveal/Fade";
 import Header from "parts/Header";
 
 import Button from "elements/Button";
-import Stepper, {
-  Numbering,
-  Meta,
-  MainContent,
-  Controller,
-} from "elements/Stepper";
+import Stepper from "elements/Stepper";
+import Numbering from "elements/Stepper/Numbering";
+import Meta from "elements/Stepper/Meta/Index";
+import MainContent from "elements/Stepper/MainContent";
+import Controller from "elements/Stepper/Controller";
 
 import BookingInformation from "parts/Checkout/BookingInformation";
 import Payment from "parts/Checkout/Payment";
