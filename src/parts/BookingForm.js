@@ -4,7 +4,6 @@ import { withRouter } from "react-router-dom";
 import propTypes from "prop-types";
 
 import Button from "elements/Button";
-// import { InputNumber, InputDate } from "elements/Form";
 import InputNumber from "elements/Form/InputNumber";
 import InputDate from "elements/Form/InputDate";
 
