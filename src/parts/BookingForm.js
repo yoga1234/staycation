@@ -64,7 +64,9 @@ class BookingForm extends Component {
       });
     }
   }
-
+  
+  // this will produce an error 
+  // because the backend isn't ready
   startBooking = () => {
     const { data } = this.state;
     this.props.startBooking({
