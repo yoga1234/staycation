@@ -1,3 +1,6 @@
+import { toast } from "react-toastify";
+import "react-toastify/dist/react-toastify.css";
+
 function errorResponseHandler(error) {
   if (error) {
     let message;
@@ -5,7 +8,9 @@ function errorResponseHandler(error) {
       if (error.response.status === 500) message = "Something went wrong";
       else message = error.response.message;
 
-      console.log(message)
+      console.log(message);
+
+      toast(message);
 
       return Promise.reject(error);
     }
