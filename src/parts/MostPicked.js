@@ -15,7 +15,7 @@ export default function MostPicked(props) {
                 key={`mostpicked-${index}`}
                 className={`item column-4${index === 0 ? " row-2" : " row-1"}`}
               >
-                <Fade bottom delay ={500 * index}>
+                <Fade bottom delay={500 * index}>
                   <div className="card card-featured">
                     <div className="tag">
                       ${item.price}
@@ -23,7 +23,11 @@ export default function MostPicked(props) {
                     </div>
                     <figure className="img-wrapper">
                       <img
-                        src={item.imageUrl}
+                        src={
+                          item.imageId[0]
+                            ? `${process.env.REACT_APP_HOST}/${item.imageId[0].imageUrl}`
+                            : ""
+                        }
                         alt={item.name}
                         className="img-cover"
                       />
