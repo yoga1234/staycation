@@ -45,7 +45,7 @@ class Checkout extends Component {
     window.scroll(0, 0);
   }
 
-  _Submit = () => {
+  _Submit = (nextStep) => {
     const { data } = this.state;
     const { checkout } = this.props;
     const payload = new FormData();
@@ -59,8 +59,12 @@ class Checkout extends Component {
     payload.append("bookingEndDate", checkout.endDate);
     payload.append("accountHolder", data.bankHolder);
     payload.append("bankFrom", data.bankName);
-    payload.append("image", data.proofPayment);
-    payload.append("bankId", data.bankName);
+    payload.append("image", data.proofPayment[0]);
+    payload.append("bankId", checkout.bankId);
+
+    this.props.submitBooking(payload).then(() => {
+      nextStep();
+    });
   };
 
   render() {
@@ -184,7 +188,7 @@ class Checkout extends Component {
                           isBlock
                           isPrimary
                           hasShadow
-                          onClick={nextStep}
+                          onClick={() => this._Submit(nextStep)}
                         >
                           Continue to Book
                         </Button>
