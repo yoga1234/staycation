@@ -1,6 +1,3 @@
-// there is an error in this file.
-// go to line 71
-
 import React, { Component } from "react";
 import { withRouter } from "react-router-dom";
 
@@ -67,9 +64,7 @@ class BookingForm extends Component {
       });
     }
   }
-  
-  // this will produce an error 
-  // because the backend isn't ready
+
   startBooking = () => {
     const { data } = this.state;
     this.props.startBooking({
