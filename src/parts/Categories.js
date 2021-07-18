@@ -32,7 +32,9 @@ export default function Categories({ data }) {
                         )}
                         <figure className="img-wrapper" style={{ height: 180 }}>
                           <img
-                            src={item.imageUrl}
+                            src={
+                              item.imageId[0] ? item.imageId[0].imageUrl : ""
+                            }
                             alt={item.name}
                             className="img-cover"
                           />
