@@ -22,10 +22,7 @@ class LandingPage extends Component {
     window.scrollTo(0, 0);
 
     if (!this.props.page.landingPage) {
-      this.props.fetchPage(
-        `https://admin-staycation-yogasmara.herokuapp.com/api/v1/member/landing-page`,
-        "landingPage"
-      );
+      this.props.fetchPage(`/landing-page`, "landingPage");
     }
   }
 
@@ -38,7 +35,10 @@ class LandingPage extends Component {
       <>
         <Header {...this.props}></Header>
         <Hero refMostPicked={this.refMostPicked} data={page.landingPage.hero} />
-        <MostPicked refMostPicked={this.refMostPicked} data={page.landingPage.mostPicked} />
+        <MostPicked
+          refMostPicked={this.refMostPicked}
+          data={page.landingPage.mostPicked}
+        />
         <Categories data={page.landingPage.categories} />
         <Testimony data={page.landingPage.testimonial}></Testimony>
         <Footer />
