@@ -32,16 +32,15 @@ class LandingPage extends Component {
   render() {
     const { page } = this.props;
 
+    if (!page.hasOwnProperty("landingPage")) return null;
+
     return (
       <>
         <Header {...this.props}></Header>
-        <Hero refMostPicked={this.refMostPicked} data={page.hero} />
-        <MostPicked
-          refMostPicked={this.refMostPicked}
-          data={page.mostPicked}
-        />
-        <Categories data={page.categories} />
-        <Testimony data={page.testimonial}></Testimony>
+        <Hero refMostPicked={this.refMostPicked} data={page.landingPage.hero} />
+        <MostPicked refMostPicked={this.refMostPicked} data={page.landingPage.mostPicked} />
+        <Categories data={page.landingPage.categories} />
+        <Testimony data={page.landingPage.testimonial}></Testimony>
         <Footer />
       </>
     );
@@ -49,7 +48,7 @@ class LandingPage extends Component {
 }
 
 const mapStateToProps = (state) => ({
-  page: state.page ? state.page.landingPage : null,
+  page: state.page,
 });
 
 export default connect(mapStateToProps, { fetchPage })(LandingPage);
