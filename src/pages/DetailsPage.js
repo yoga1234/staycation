@@ -7,12 +7,12 @@ import PageDetailTitle from "parts/PageDetailTitle";
 import FeaturedImage from "parts/FeaturedImage";
 import PageDetailDescription from "parts/PageDetailDescription";
 import BookingForm from "parts/BookingForm";
-import Categories from "parts/Categories";
 import Testimony from "parts/Testimony";
 import Footer from "parts/Footer";
 
 import { checkoutBooking } from "store/actions/checkout";
 import { fetchPage } from "store/actions/page";
+import Activities from "parts/Acivities";
 
 class DetailsPages extends Component {
   componentDidMount() {
@@ -60,7 +60,7 @@ class DetailsPages extends Component {
           </div>
         </section>
 
-        <Categories data={page[match.params.id].activityId} />
+        <Activities data={page[match.params.id].activityId} />
         <Testimony data={page[match.params.id].testimonial} />
 
         <Footer />
