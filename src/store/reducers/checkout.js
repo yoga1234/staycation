@@ -1,13 +1,17 @@
-/* eslint-disable import/no-anonymous-default-export */
+import axios from "axios";
 import { CHECKOUT_BOOKING } from "../types";
 
-const initialState = null;
+export const checkoutBooking = (payload) => (dispatch) => {
+  dispatch({
+    type: CHECKOUT_BOOKING,
+    payload: payload,
+  });
+};
 
-export default function (state = initialState, action) {
-  switch (action.type) {
-    case CHECKOUT_BOOKING:
-      return action.payload;
-    default:
-      return state;
-  }
-}
+export const submitBooking = (payload) => {
+  return axios.post(
+    `https://admin-staycation-yogasmara.herokuapp.com/api/v1/member/booking-page`,
+    payload,
+    { headers: { contentType: "multipart/form-data" } }
+  );
+};
