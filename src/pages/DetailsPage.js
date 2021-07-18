@@ -11,8 +11,6 @@ import Categories from "parts/Categories";
 import Testimony from "parts/Testimony";
 import Footer from "parts/Footer";
 
-import ItemDetails from "json/itemDetails.json";
-
 import { checkoutBooking } from "store/actions/checkout";
 import { fetchPage } from "store/actions/page";
 
@@ -23,13 +21,16 @@ class DetailsPages extends Component {
 
     if (!this.props.page[this.props.match.params.id]) {
       this.props.fetchPage(
-        `${process.env.REACT_APP_HOSTT}/api/v1/member/detail-page/${this.props.match.params.id}`
+        `${process.env.REACT_APP_HOSTT}/api/v1/member/detail-page/${this.props.match.params.id}`,
+        this.props.match.params.id
       );
     }
   }
 
   render() {
     const { page, match } = this.props;
+
+    if (!page[match.params.id]) return null;
 
     const breadcrumb = [
       { pageTitle: "Home", pageHref: "" },
@@ -40,7 +41,7 @@ class DetailsPages extends Component {
       <>
         <Header {...this.props} />
         <PageDetailTitle breadcrumb={breadcrumb} data={page[match.params.id]} />
-        <FeaturedImage data={page[match.params.id].imageUrls} />
+        <FeaturedImage data={page[match.params.id].imageId} />
         <section className="container">
           <div className="row">
             <div className="col-7 pr-5">
@@ -59,7 +60,7 @@ class DetailsPages extends Component {
           </div>
         </section>
 
-        <Categories data={page[match.params.id].categories} />
+        <Categories data={page[match.params.id].activityId} />
         <Testimony data={page[match.params.id].testimonial} />
 
         <Footer />
@@ -69,7 +70,7 @@ class DetailsPages extends Component {
 }
 
 const mapStateToProps = (state) => ({
-  page: state.page.detailsPage,
+  page: state.page,
 });
 
 export default connect(mapStateToProps, { checkoutBooking, fetchPage })(
